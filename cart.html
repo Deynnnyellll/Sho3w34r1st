@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="about_us_style.css">
+  <title>Shopping Cart</title>
+</head>
+<body>
+    <section id="home-navbar">
+        <div>
+            <ul id="home">
+                <li><a href="home.html"> Home </a></li>
+                <li><a href="contact.html"> Contact Us </a></li>
+            </ul>
+        </div>
+    </section>
+
+  <div class="container">
+    <h1>Shopping Cart</h1>
+
+    <div class="cart-item">
+      <img src="https://image.goat.com/750/attachments/product_template_pictures/images/075/102/684/original/992773_00.png.png" alt="Item 1">
+      <div class="item-details">
+        <div class="item-name">Dunk Low 'Reverse Panda'</div>
+        <div class="item-price">$19.99</div>
+        <div class="item-quantity">
+          Quantity: <button class="quantity-btn" onclick="decreaseQuantity(1)">-</button>
+          <span id="quantity1">1</span>
+          <button class="quantity-btn" onclick="increaseQuantity(1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-item">
+      <img src="https://image.goat.com/750/attachments/product_template_pictures/images/090/504/495/original/A06689C.png.png" alt="Item 2">
+      <div class="item-details">
+        <div class="item-name">Converse Chuck Taylor All-Star</div>
+        <div class="item-price">$29.99</div>
+        <div class="item-quantity">
+          Quantity: <button class="quantity-btn" onclick="decreaseQuantity(2)">-</button>
+          <span id="quantity2">2</span>
+          <button class="quantity-btn" onclick="increaseQuantity(2)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-item">
+        <img src="https://image.goat.com/750/attachments/product_template_pictures/images/089/916/775/original/DX8733_001.png.png" alt="Item 3">
+        <div class="item-details">
+          <div class="item-name">Jordan Luka 2 'Space Hunter'</div>
+          <div class="item-price">$29.99</div>
+          <div class="item-quantity">
+            Quantity: <button class="quantity-btn" onclick="decreaseQuantity(3)">-</button>
+            <span id="quantity3">2</span>
+            <button class="quantity-btn" onclick="increaseQuantity(3)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-item">
+        <img src="https://image.goat.com/750/attachments/product_template_pictures/images/090/612/812/original/1203A321_100.png.png" alt="Item 4">
+        <div class="item-details">
+          <div class="item-name">GT-2160 Cecilie Bahnsen Mary Jane</div>
+          <div class="item-price">$29.99</div>
+          <div class="item-quantity">
+            Quantity: <button class="quantity-btn" onclick="decreaseQuantity(4)">-</button>
+            <span id="quantity4">2</span>
+            <button class="quantity-btn" onclick="increaseQuantity(4)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-item">
+        <img src="https://image.goat.com/750/attachments/product_template_pictures/images/089/049/139/original/ID9664.png.png" alt="Item 5">
+        <div class="item-details">
+          <div class="item-name">Ultra Boost 1.0 Off White Gold Metallic Pink</div>
+          <div class="item-price">$29.99</div>
+          <div class="item-quantity">
+            Quantity: <button class="quantity-btn" onclick="decreaseQuantity(5)">-</button>
+            <span id="quantity5">2</span>
+            <button class="quantity-btn" onclick="increaseQuantity(5)">+</button>
+          </div>
+        </div>
+      </div>
+  
+  
+  
+
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+
+  <script>
+    function decreaseQuantity(itemId) {
+      const quantityElement = document.getElementById('quantity' + itemId);
+      let currentQuantity = parseInt(quantityElement.textContent);
+
+      if (currentQuantity > 1) {
+        currentQuantity--;
+        quantityElement.textContent = currentQuantity;
+      }
+    }
+
+    function increaseQuantity(itemId) {
+      const quantityElement = document.getElementById('quantity' + itemId);
+      let currentQuantity = parseInt(quantityElement.textContent);
+      currentQuantity++;
+      quantityElement.textContent = currentQuantity;
+    }
+  </script>
+</body>
+</html>
