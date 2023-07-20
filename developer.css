@@ -1,57 +1,37 @@
 body {
-    background-color: black;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+/** Background Video of the Webpage **/
 .background-video {
-    position: relative;
-    width: 100%;
-    height: 97.5vh;
-    overflow: hidden;
-    margin: none;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 #programmer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-
-.title {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1200px;
-  height: 100px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 1px solid white;
-  border-radius: 20px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
-.title h1 {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 40pt;
-  -webkit-text-stroke: 0.8px white;
-  letter-spacing: 3px;
-}
-
+/** Container for Developer **/
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 1000px;
-}  
+  width: 90%;
+  max-width: 1200px;
+}
 
 .developer-1,
 .developer-2 {
@@ -62,13 +42,20 @@ body {
   text-align: center;
   color: white;
   border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+/** Images **/
 .developer-1 img,
 .developer-2 img {
   margin-top: 30px;
   width: 90%;
   height: 80%;
+  border-radius: 20px;
+  object-fit: cover;
 }
 
 .developer-1 h1,
@@ -77,38 +64,98 @@ body {
   font-weight: 400;
   font-size: 25pt;
   letter-spacing: 3px;
+  color: white;
 }
 
+
+/** Hover Style **/
 .hoverlay {
   position: absolute;
   border-radius: 20px;
-  background-color: rgb(75, 75, 75);
-  transition: all 0.3s ease;
+  background-color: rgba(75, 75, 75, 0.7);
+  transition: opacity 0.3s ease;
   opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
+
+/** Overlay Style **/
 .overlay {
   height: 100%;
   width: 0;
   top: 0;
   right: 0;
   background-color: rgb(75, 75, 75);
+  position: absolute;
+  z-index: 2;
+  transition: width 0.3s ease;
 }
 
-
-.developer-1:hover .hoverlay {
-  opacity: 0.9;
+.developer-1:hover,
+.developer-2:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); 
 }
 
-.developer-1:hover .overlay {
-  width: 70%;
-}
-
+.developer-1:hover .hoverlay,
 .developer-2:hover .hoverlay {
-  opacity: 0.9;
+  opacity: 1;
 }
 
+.developer-1:hover .overlay,
 .developer-2:hover .overlay {
-  width: 70%;
+  width: 100%;
 }
 
+/* Additional Styling for Hover Effect */
+.developer-1 .overlay-content,
+.developer-2 .overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.developer-1 .overlay-content h1,
+.developer-2 .overlay-content h1 {
+  font-size: 30px;
+  color: white;
+}
+
+
+/* Additional Styles for Improved Creativity */
+.container {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  animation: fadeIn 1s ease;
+  animation-delay: 0.5s;
+}
+
+.developer-1 {
+  animation: fadeIn 1s ease;
+  animation-delay: 1s;
+}
+
+.developer-2 {
+  animation: fadeIn 1s ease;
+  animation-delay: 1.5s;
+}
