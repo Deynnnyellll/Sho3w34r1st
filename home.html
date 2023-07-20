@@ -219,8 +219,8 @@
                 <div class="github"> <i class="fa-brands fa-github"> </i> </div>
             </div>
 
-            <div class = "forms" method="doPost" action="https://script.google.com/macros/s/AKfycbw-YuzYLq9CAzThGw9dPBFb5wMEh2qm7ZyT3YZyxnl6e1hDqXoFLsaJip7hoI1O5qUB/exec">
-                <form>
+            <div class = "forms">
+                <form name="submit-to-google-sheet">
                     <h3> Do you have any concern? </h3>
                     <div class="fname">
                         <label for="fname"> <b> First Name </b> </label>
@@ -245,10 +245,24 @@
                         <p> <label for="concern"> <b> Concern </b></label> </p>
                         <textarea name="concern" id="concern" cols="30" rows="10"></textarea>
                     </div> <br>
-                        <button class="submit-button"> Submit </button>
+                        <button class="submit-button" type="submit"> Submit </button>
                 </form>
             </div>
         </section>
-    
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwoPICHwyR8CmgvEWp6UQF7tNOBetCCITNx3sfShoYYGt4CCdGHnK5WZkIBScP3_6-0/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert("Thank you for your message!")
+                
+                form.reset()
+             } )
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
 </body>
 </html>
